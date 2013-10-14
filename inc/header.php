@@ -12,8 +12,12 @@
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
+        <?php
+		require dirname(__FILE__)."/lib/lessc.inc.php";
+		$less = new lessc;
+		$less->setFormatter('compressed');
+		$less->compileFile(dirname(__FILE__)."/css/style.less",dirname(__FILE__)."/css/style.css");
+		?>
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
